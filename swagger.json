@@ -27,6 +27,10 @@
           "200": {
             "description": "user list",
             "test": "asdf"
+          },
+          "100": {
+            "test": "asdf",
+            "asdf": "asdf"
           }
         }
       },
