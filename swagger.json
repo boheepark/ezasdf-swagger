@@ -25,7 +25,35 @@
         ],
         "responses": {
           "200": {
-            "description": "user list"
+            "description": "user list",
+            "test": "asdf"
+          }
+        }
+      },
+      "post": {
+        "description": "Adds a new user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User to add",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User added"
           }
         }
       }
