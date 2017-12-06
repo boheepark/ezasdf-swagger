@@ -25,12 +25,7 @@
         ],
         "responses": {
           "200": {
-            "description": "list",
-            "test": "asdf"
-          },
-          "100": {
-            "test": "asdf",
-            "asdf": "asdf"
+            "description": "Successfully fetched users",
           }
         }
       },
@@ -58,6 +53,15 @@
         "responses": {
           "200": {
             "description": "User added"
+          },
+          "201": {
+            "description": "Successfully added user"
+          },
+          "400": {
+            "description": "Invalid payload"
+          },
+          "401": {
+            "description": "You do not have permission to do that"
           }
         }
       }
@@ -80,7 +84,10 @@
         ],
         "responses": {
           "200": {
-            "description": "user object"
+            "description": "User fetched"
+          },
+          "404": {
+            "description": "User does not exist"
           }
         }
       }
@@ -105,6 +112,12 @@
         "responses": {
           "200": {
             "description": "user object"
+          },
+          "201": {
+            "description": "Successfully signed up"
+          },
+          "400": {
+            "description": "Invalid payload"
           }
         }
       }
@@ -129,13 +142,22 @@
         "responses": {
           "200": {
             "description": "Successfully signed in"
+          },
+          "400": {
+            "description": "Invalid payload"
+          },
+          "404": {
+            "description": "User does not exist"
+          },
+          "500": {
+            "description": "Try again"
           }
         }
       }
     },
-    "/auth/status": {
+    "/auth/signout": {
       "get": {
-        "description": "Returns the logged in user's status",
+        "description": "Signs a user out",
         "produces": [
           "application/json"
         ],
@@ -146,14 +168,20 @@
         ],
         "responses": {
           "200": {
-            "description": "user object"
+            "description": "Successfully signed out"
+          },
+          "401": {
+            "description": "Something went wrong"
+          },
+          "403": {
+            "description": "Provide a valid token"
           }
         }
       }
     },
-    "/auth/logout": {
+    "/auth/profile": {
       "get": {
-        "description": "Logs a user out",
+        "description": "Returns the signed in user's profile",
         "produces": [
           "application/json"
         ],
@@ -164,7 +192,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully logged out"
+            "description": "Successfully fetched user profile"
+          },
+          "401": {
+            "description": "Something went wrong"
+          },
+          "403": {
+            "description": "Provide a valid token"
           }
         }
       }
